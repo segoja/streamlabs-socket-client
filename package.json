@@ -4,7 +4,7 @@
   "description": "A Browser/Node.js JavaScript library for interfacing with streamlabs sockets.",
   "main": "index.js",
   "scripts": {
-    "lint": "node ./node_modules/eslint/bin/eslint.js ./src ./examples ./webpack.config.js --ext js",
+    "lint": "node ./node_modules/eslint/bin/eslint.js ./src ./examples ./webpack.config.js --ext js --fix",
     "lint:fix": "npm run lint -- --fix",
     "clean": "rimraf ./dist && mkdirp ./dist/browser ./dist/node",
     "build:node": "babel ./src --out-dir ./dist/node -s",
