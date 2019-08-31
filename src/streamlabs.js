@@ -71,7 +71,6 @@ class StreamlabsClient extends EventEmitter {
 
   handleEvent (event) {
     const { message, type } = event;
-    console.log(message,type);
 
     // eslint-disable-next-line no-underscore-dangle
     if (this.idTable.has(message._id)) {
