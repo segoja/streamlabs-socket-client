@@ -71,7 +71,7 @@ class StreamlabsClient extends EventEmitter {
 
   handleEvent (event) {
     const { message, type } = event;
-    console.log(event);
+    console.log(message,type);
 
     // eslint-disable-next-line no-underscore-dangle
     if (this.idTable.has(message._id)) {
@@ -123,6 +123,14 @@ class StreamlabsClient extends EventEmitter {
           amount: removeNonNumeric(message.amount),
           formattedAmount: (message.formattedAmount || message.formatted_amount || '').toString(),
           currency: message.currency || 'USD',
+          isTest,
+        });
+
+        break;
+      }
+      case 'merch': {
+        this.emit('merch', {
+          ...message,
           isTest,
         });
 
