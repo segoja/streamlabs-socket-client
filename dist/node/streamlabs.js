@@ -154,7 +154,7 @@ var StreamlabsClient = function (_EventEmitter) {
 
             if (isResub) {
               this.emit('resubscription', _extends({}, message, {
-                months: Number((0, _helpers.removeCommas)(message.months)) || 0,
+                months: (0, _helpers.removeCommas)(message.months) || 0,
                 formattedMonths: message.months,
                 isTest: isTest
               }));
@@ -170,9 +170,17 @@ var StreamlabsClient = function (_EventEmitter) {
         case 'donation':
           {
             this.emit('donation', _extends({}, message, {
-              amount: Number((0, _helpers.removeNonNumeric)(message.amount)),
+              amount: (0, _helpers.removeNonNumeric)(message.amount),
               formattedAmount: (message.formattedAmount || message.formatted_amount || '').toString(),
               currency: message.currency || 'USD',
+              isTest: isTest
+            }));
+
+            break;
+          }
+        case 'merch':
+          {
+            this.emit('merch', _extends({}, message, {
               isTest: isTest
             }));
 
@@ -182,7 +190,7 @@ var StreamlabsClient = function (_EventEmitter) {
         case 'host':
           {
             this.emit('host', _extends({}, message, {
-              viewers: Number((0, _helpers.removeNonNumeric)(message.viewers)),
+              viewers: (0, _helpers.removeNonNumeric)(message.viewers),
               formattedViewers: message.viewers.toString(),
               isTest: isTest
             }));
@@ -193,7 +201,7 @@ var StreamlabsClient = function (_EventEmitter) {
         case 'bits':
           {
             this.emit('bits', _extends({}, message, {
-              amount: Number((0, _helpers.removeCommas)(message.amount)) || 0,
+              amount: (0, _helpers.removeCommas)(message.amount) || 0,
               formattedAmount: message.amount.toString(),
               isTest: !!message.isTest
             }));

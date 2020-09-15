@@ -4,10 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var removeCommas = exports.removeCommas = function removeCommas(str) {
-  return str.replace(/,/g, '');
+  return typeof str === 'string' ? Number(str.replace(/,/g, '')) : str;
 };
 
 var removeNonNumeric = exports.removeNonNumeric = function removeNonNumeric(str) {
-  return str.replace(/[^0-9.]/g, '');
+  return typeof str === 'string' ? Number(str.replace(/[^0-9.]/g, '')) : str;
 };
 //# sourceMappingURL=helpers.js.map
